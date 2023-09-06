@@ -1,0 +1,18 @@
+let imie = prompt("Podaj imię: ");
+document.write(`<h1> Witaj ${imie} </h1>`);
+let a = parseFloat(prompt("Podaj pierwszą liczbę: "));
+let b = parseFloat(prompt("Podaj drugą liczbę: "));
+let suma = a + b;
+let odejmowanie = a-b;
+let mnożenie = a*b;
+let dzielenie = a/b;
+let potegowanie = a**b;
+document.write(`${a} + ${b} = ${suma}`);
+document.write("<br>");
+document.write(`${a} - ${b} = ${odejmowanie}`);
+document.write("<br>");
+document.write(`${a} * ${b} = ${mnożenie}`);
+document.write("<br>");
+document.write(`${a} / ${b} = ${dzielenie}`);
+document.write("<br>");
+document.write(`${a} ^ ${b} = ${potegowanie}`);
