@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Przykład licznika kliknięć</title>
+    <meta charset="ISO-8859-1">
+</head>
+<body>
+<button id="przycisk">Kliknij mnie</button>
+<p id="licznik">Liczba klikniec: 0</p>
+<meta charset="UTF-8">
+
+<script>
+    // Pobieramy przycisk i element licznika z dokumentu HTML
+    var przycisk = document.getElementById('przycisk');
+    var licznikElement = document.getElementById('licznik');
+
+    // Inicjalizujemy zmienną do śledzenia liczby kliknięć
+    var liczbaKlikniec = 0;
+
+    // Dodajemy nasłuchiwanie zdarzenia click na przycisku
+    przycisk.addEventListener('click', function () {
+        liczbaKlikniec++;
+
+        // Aktualizujemy tekst w elemencie licznika
+        licznikElement.textContent = 'Liczba klikniec: ' + liczbaKlikniec;
+    });
+</script>
+</body>
+</html>
