@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+    // Funkcja do informowania użytkownika o typie danych wprowadzonej zmiennej
+    function informujTypDanych(zmienna) {
+        if (typeof zmienna === 'number') {
+            alert('Wprowadzona zmienna to liczba.');
+        } else if (typeof zmienna === 'string') {
+            alert('Wprowadzona zmienna to ciąg znaków (string).');
+        } else if (typeof zmienna === 'boolean') {
+            alert('Wprowadzona zmienna to wartość logiczna (boolean).');
+        } else {
+            alert('Wprowadzona zmienna to inny typ danych.');
+        }
+    }
+
+    // Użytkownik wprowadza zmienną za pomocą okna dialogowego prompt
+    const wprowadzonaZmienna = prompt('Wprowadź zmienną:');
+
+    // Sprawdzamy typ wprowadzonej zmiennej i informujemy użytkownika
+    informujTypDanych(wprowadzonaZmienna);
+</script>
+</body>
+</html>
