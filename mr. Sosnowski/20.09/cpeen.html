@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        body {
+            background: rgb(131,58,180);
+            background: linear-gradient(90deg, rgba(131,58,180,1) 0%, rgba(253,29,29,1) 50%, rgba(252,176,69,1) 100%);}
+    </style>
+</head>
+<body>
+<script src="skrypt.js"> </script>
+<h1>Oblicz cenę paliwa</h1>
+<p>Rodzaj paliwa (1-benzyna, 2-olej napędowy)</p>
+
+<select id="wybor">
+    <option value="1">Benzyna</option>
+    <option value="2">Olej napędowy</option>
+</select>
+<br>
+<label for="iloscLitrów">Liczba litrów:</label><br>
+<input type="number" id="iloscLitrów" />
+<button onclick="paliwo()">OBLICZ</button>
+
+<p id="wynik"></p>
+
+
+<script>
+    function paliwo(){
+        const rodzaj = document.getElementById("wybor").value;
+        const iloscLitrow = document.getElementById("iloscLitrów").value;
+
+        let kosztpaliwa = 0;
+
+        switch (rodzaj) {
+            case "1":
+                kosztpaliwa = 4 * iloscLitrow;
+                break;
+            case "2":
+                kosztpaliwa = 3.5 * iloscLitrow;
+                break;
+            default:
+                kosztpaliwa = 0;
+                break;
+        }
+
+
+        const wynikostateczny = document.getElementById("wynik");
+        wynikostateczny.textContent = `Koszt paliwa wynosi: ${kosztpaliwa} zł`;
+    }
+</script>
+</body>
+</html>
