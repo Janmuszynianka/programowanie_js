@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Losowanie Liczby z Zakresu</title>
+    <meta charset="UTF-8">
+</head>
+<body>
+<h1>Losowanie Liczby z Zakresu</h1>
+
+<form id="losowanieForm">
+    <label for="a">Podaj początek zakresu (a):</label>
+    <input type="number" id="a" required><br><br>
+
+    <label for="b">Podaj koniec zakresu (b):</label>
+    <input type="number" id="b" required><br><br>
+
+    <button type="button" onclick="losujLiczbe()">Losuj</button>
+</form>
+
+<p id="wynik"></p>
+
+<script>
+    function losujLiczbe() {
+        // Pobierz wartości a i b z formularza
+        let a = parseInt(document.getElementById("a").value);
+        let b = parseInt(document.getElementById("b").value);
+
+        // Sprawdź, czy a < b
+        if (isNaN(a) || isNaN(b) || a >= b) {
+            // Wyświetl komunikat o błędzie
+            document.getElementById("wynik").textContent = "Nieprawidłowe dane wejściowe.";
+        } else {
+            let wynik = Math.floor(Math.random() * (b - a + 1)) + a;
+            document.getElementById("wynik").textContent = `Wylosowano liczbę z przedziału [${a}, ${b}]: ${wynik}`;
+        }
+    }
+</script>
+<p>
+    Rozpocznij program.<br>
+    Wprowadź liczbę a przez użytkownika.<br>
+    Wprowadź liczbę b przez użytkownika.<br>
+    Sprawdź, czy a jest mniejsze niż b. Jeśli nie, wyświetl komunikat o błędzie ("Nieprawidłowe dane wejściowe.") i zakończ program.<br>
+    Jeśli a jest mniejsze niż b, przejdź do kroku 6.<br>
+    Wylosuj liczbę całkowitą z przedziału [a, b] (włącznie) i zapisz wynik do zmiennej.<br>
+    Wyświetl wynik losowania na ekranie.<br>
+    Zakończ program.<br>
+</p>
+</body>
+</html>

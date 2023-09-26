@@ -1,0 +1,52 @@
+<mxfile host="app.diagrams.net" modified="2023-09-26T10:14:10.190Z" agent="Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/117.0.0.0 Safari/537.36" etag="Zozg-Pj1Ih4TJc7V7mgx" version="21.8.2" type="device">
+  <diagram name="Strona-1" id="iF2Ck2FfXPXsl-4TBxxz">
+    <mxGraphModel dx="1434" dy="790" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="827" pageHeight="1169" math="0" shadow="0">
+      <root>
+        <mxCell id="0" />
+        <mxCell id="1" parent="0" />
+        <mxCell id="t15mAkM2OkfHsXZ08MGz-3" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=0.5;exitY=1;exitDx=0;exitDy=0;" edge="1" parent="1" source="t15mAkM2OkfHsXZ08MGz-1" target="t15mAkM2OkfHsXZ08MGz-2">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="t15mAkM2OkfHsXZ08MGz-1" value="Start&lt;br&gt;" style="ellipse;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="340" y="20" width="120" height="80" as="geometry" />
+        </mxCell>
+        <mxCell id="t15mAkM2OkfHsXZ08MGz-2" value="Wprowadź liczbę oczek i kostek przez użytkownika" style="shape=parallelogram;perimeter=parallelogramPerimeter;whiteSpace=wrap;html=1;fixedSize=1;" vertex="1" parent="1">
+          <mxGeometry x="320" y="170" width="160" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="t15mAkM2OkfHsXZ08MGz-8" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=0;exitY=0.5;exitDx=0;exitDy=0;" edge="1" parent="1" source="t15mAkM2OkfHsXZ08MGz-4" target="t15mAkM2OkfHsXZ08MGz-6">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="t15mAkM2OkfHsXZ08MGz-10" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=1;exitY=0.5;exitDx=0;exitDy=0;" edge="1" parent="1" source="t15mAkM2OkfHsXZ08MGz-4" target="t15mAkM2OkfHsXZ08MGz-9">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="t15mAkM2OkfHsXZ08MGz-4" value="Sprawdź, czy liczba jest prawidłowa (np.&lt;br&gt;od 1 do 6, dla kostki sześcio- ściennej)  " style="rhombus;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="280" y="270" width="240" height="180" as="geometry" />
+        </mxCell>
+        <mxCell id="t15mAkM2OkfHsXZ08MGz-5" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=0.5;exitY=1;exitDx=0;exitDy=0;entryX=0.5;entryY=0;entryDx=0;entryDy=0;" edge="1" parent="1" source="t15mAkM2OkfHsXZ08MGz-2" target="t15mAkM2OkfHsXZ08MGz-4">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="t15mAkM2OkfHsXZ08MGz-14" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=0.5;exitY=1;exitDx=0;exitDy=0;" edge="1" parent="1" source="t15mAkM2OkfHsXZ08MGz-6" target="t15mAkM2OkfHsXZ08MGz-11">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="t15mAkM2OkfHsXZ08MGz-6" value="Wykonaj rzut kostką i zapisz kod do zmiennej" style="shape=parallelogram;perimeter=parallelogramPerimeter;whiteSpace=wrap;html=1;fixedSize=1;" vertex="1" parent="1">
+          <mxGeometry x="120" y="490" width="190" height="80" as="geometry" />
+        </mxCell>
+        <mxCell id="t15mAkM2OkfHsXZ08MGz-13" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=0.5;exitY=1;exitDx=0;exitDy=0;entryX=0.5;entryY=0;entryDx=0;entryDy=0;" edge="1" parent="1" source="t15mAkM2OkfHsXZ08MGz-9" target="t15mAkM2OkfHsXZ08MGz-11">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="t15mAkM2OkfHsXZ08MGz-9" value="Wyświetl komunikat o błędzie i poproś o ponowne wprowadzenie liczby" style="shape=parallelogram;perimeter=parallelogramPerimeter;whiteSpace=wrap;html=1;fixedSize=1;" vertex="1" parent="1">
+          <mxGeometry x="510" y="490" width="190" height="80" as="geometry" />
+        </mxCell>
+        <mxCell id="t15mAkM2OkfHsXZ08MGz-15" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=0.5;exitY=1;exitDx=0;exitDy=0;" edge="1" parent="1" source="t15mAkM2OkfHsXZ08MGz-11" target="t15mAkM2OkfHsXZ08MGz-12">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="t15mAkM2OkfHsXZ08MGz-11" value="Wyswietl wynik rzutu kostką" style="shape=parallelogram;perimeter=parallelogramPerimeter;whiteSpace=wrap;html=1;fixedSize=1;" vertex="1" parent="1">
+          <mxGeometry x="320" y="640" width="160" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="t15mAkM2OkfHsXZ08MGz-12" value="Koniec&lt;br&gt;" style="ellipse;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="340" y="750" width="120" height="80" as="geometry" />
+        </mxCell>
+      </root>
+    </mxGraphModel>
+  </diagram>
+</mxfile>
