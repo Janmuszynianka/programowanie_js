@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+
+
+    const monety = [1,2,3]
+    const transakcje = []
+
+    resztaDoWydania = parseInt(prompt("Podaj resztę "))
+
+    while (resztaDoWydania > 0) {
+        nominał = 0
+        for (let i = 0; i < monety.length; i++) {
+            if (monety[i] <= resztaDoWydania && monety[i] > nominał) {
+                nominał = monety[i]
+            }
+        }
+        resztaDoWydania -= nominał;
+        transakcje.push(nominał);
+    }
+    console.log(`Resztę można wydać ${transakcje.length} monetami.`);
+    console.log(`Użyte monety do wydania reszty to: ${transakcje.join(", ")}.`);
+</script>
+</body>
+</html>

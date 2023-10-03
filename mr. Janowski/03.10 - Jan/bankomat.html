@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+    let wypłata = parseFloat(prompt("Podaj kwotę do wypłaty:"));
+
+    if (!isNaN(wypłata)) {
+        switch (true) {
+            case wypłata > 0:
+                alert("Wypłaciłeś z konta " + wypłata.toFixed(2) + " zł.");
+                break;
+            case wypłata === 0:
+                alert("Nie dokonano wypłaty.");
+                break;
+            default:
+                alert("Podano nieprawidłową wartość wypłaty.");
+        }
+    } else {
+        alert("Podano nieprawidłową wartość wypłaty.");
+    }
+</script>
+</body>
+</html>
