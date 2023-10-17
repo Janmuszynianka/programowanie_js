@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Sortowanie Tablicy</title>
+    <meta charset="utf-8">
+</head>
+<body>
+<script src="test.js"></script>
+<script>
+    let liczby = [5, 2, 8, 1, 9, 3, 6, 4, 7, 10];
+
+    let uporzadkowanaTablica = sortujTablice(liczby);
+
+    alert("Uporządkowana tablica (liczby całkowite): " + uporzadkowanaTablica.join(", "));
+
+    let liczby1 = [5.5, 2.2, 8.8, 1.1, 9.9, 3.3, 6.6, 4.4, 7.7, 10.0];
+
+    let uporzadkowanaTablica1 = sortujTablice(liczby1);
+
+    alert("Uporządkowana tablica (liczby typu double): " + uporzadkowanaTablica1.join(", "));
+
+</script>
+</body>
+</html>
