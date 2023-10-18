@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Style w JavaScript</title>
+    <link rel="stylesheet" href="styl6.css">
+</head>
+<body>
+
+<aside>
+    <h1>Konfigurator stylu</h1>
+    <p>Podaj kolor tła</p><br>
+    <button class="indigo" onclick="kolorT('indigo')">Indigo</button>
+    <button class="steel" onclick="kolorT('steelblue')">SteelBlue</button>
+    <button class="olive" onclick="kolorT('olive')">Olive</button>
+
+        <p>Podaj kolor czcionki</p>
+        <select id="fontcolor" onchange="fontColor()">
+            <option value="white">White</option>
+            <option value="tan">Tan</option>
+            <option value="bisque">Bisque</option>
+            <option value="plum">Plum</option>
+        </select>
+
+        <p>Podaj rozmiar czcionki w procentach, np. 200%</p>
+    <input class="fontsize" type="text" value="100%" onchange="zmianaCzcionki(this.value)">
+
+    <p>Czy rysunek ma mieć ramkę?</p>
+    <input class="borderdisplay" name="ramka" type="checkbox" checked onchange="zmianaRamki()">
+    <label for="ramka">Rysuj ramkę</label>
+
+
+        <p>Jaki jest typ punktora listy?</p>
+        <input onclick="zmiana('disc')" name="radio1" type="radio" value="disc" checked>
+        <label>dysk</label>
+        <input onclick="zmiana('square')" name="radio1" type="radio" value="square">
+        <label>kwadrat</label>
+        <input onclick="zmiana('circle')" name="radio1" type="radio" value="circle">
+        <label>okrąg</label>
+    </aside>
+    <main>
+        <img src="gibraltar.jpg" alt="Półwysep Gibraltar">
+        <ul class="list">
+            <li>element 1</li>
+            <li>element 2</li>
+            <li>element 3</li>
+        </ul>
+        <p class="text">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. </p>
+    </main>
+    <footer>
+        <p>Autor: xxxxxxxxxxxxxx</p>
+    </footer>
+<script>
+    const blokp = document.querySelector('main');
+    function kolorT(kol){
+        blokp.style.backgroundColor = kol;
+    }
+
+    function fontColor() {
+        let wybor = document.getElementById("fontcolor");
+        let wybrany = wybor.value;
+
+        let main = document.querySelector('main');
+        main.style.color = wybrany;}
+
+
+    function zmianaCzcionki(nowyRozmiar) {
+        let main = document.querySelector('main');
+        main.style.fontSize = nowyRozmiar;
+    }
+    function zmianaRamki() {
+        let checkbox = document.querySelector('.borderdisplay');
+        let obrazek = document.querySelector('img');
+
+        if (checkbox.checked) {
+            obrazek.style.border = "5px solid black";
+        } else {
+            obrazek.style.border = "none";
+        }
+    }
+    function zmiana(val) {
+        let list = document.querySelector('.list');
+        list.style.listStyleType = val;
+    }
+</script>
+</body>
+
+</html>

@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<h1>Pobierz mnie do zmiennej 'heading'</h1>
+<p>pobierz mnie do elementu tablico-podobnego razem z innymi paragrafami!</p>
+<p>pobierz mnie do elementu tablico-podobnego razem z innymi paragrafami!</p>
+<p>pobierz mnie do elementu tablico-podobnego razem z innymi paragrafami!</p>
+<div class="test">
+    <p>pobierz DIV-a z klasą test do jakiejś zmiennej</p>
+    <p id="test">następnie pobierz ten paragraf, ale nie przeszukuj całego 'documentu', przeszukaj tylko DIV-a z klasą test</p>
+</div>
+
+    <script>
+        const heading = document.querySe1ector( h1' ) ;
+        console. log(heading) ;
+        const PALL = document.querySe1ectorA11( 'p');
+        console. log(PALL) ;
+        const testDiv = document.querySe1ector('.tesť');
+        console. log(testDiv) ;
+        const plnsideDiv = testDiv.querySe1ector( '#tesť' ) ;
+        console. log(plnsideDiv) ;
+</script>
+</body>
+</html>

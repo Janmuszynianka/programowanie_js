@@ -1,0 +1,63 @@
+body{
+    font-family: 'Georgia';
+}
+
+aside, main{
+    float: left;
+}
+
+aside{
+    default-color: maroon;
+    background-color: maroon;
+    color: #ffffff;
+    height: 600px;
+    width: 30%;
+}
+
+main{
+    background-color: maroon;
+    color: #ffffff;
+    height: 600px;
+    width: 70%;
+    overflow: auto;
+}
+
+main img, main ul{
+    float: left;
+}
+
+main p{
+    clear: both;
+}
+
+footer{
+    background-color: dimgray;
+    color: #ffffff;
+    clear: both;
+}
+
+p{
+    padding: 10px;
+}
+
+img{
+    padding: 10px;
+    border: 1px solid #ffffff;
+}
+
+button.indigo{
+    background-color: indigo;
+}
+
+button.steel{
+    background-color: steelblue;
+}
+
+button.olive{
+    background-color: olive;
+}
+
+
+
+
+
