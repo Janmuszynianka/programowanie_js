@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Zadanie1-A</title>
+</head>
+<body>
+<h3>Zad1-2 pkt. Napisz funkcję, która po uruchomieniu skryptu pobiera wartość początkową i wartość zwiększającą,
+    następnie wyświetla liczby oddzielone przecinkami w zakresie od wartość początkowa do 100. Po napisaniu funkcji
+    wywołaj ją</h3>
+<script>
+    function zwiekszanie(początek, zwiększacz) {
+        document.write(`Liczby od ${początek} do 100: `)
+        for (let i = początek; i < 100; i += zwiększacz) {
+            document.write(`${i},`)
+        }
+    }
+
+    let poczatek = parseInt(prompt("Podaj wartość początkową"))
+    let zwiekszacz = parseInt(prompt("Podaj wartość zwiększającą"))
+    zwiekszanie(poczatek, zwiekszacz)
+</script>
+</body>
+</html>

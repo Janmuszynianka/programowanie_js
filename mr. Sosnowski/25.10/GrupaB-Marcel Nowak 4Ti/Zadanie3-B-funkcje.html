@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Zadanie3-A</title>
+</head>
+<body>
+<h3>Zad3-2 pkt. Napisz funkcję strzałkową (przypisaną do stałej) obliczającą BMI wg wzoru: BMI = kg / m2. Funkcja
+    powinna pobierać dane z pól formularza i po kliknięciu w przycisk wypisać je pod formularzem w paragrafie o
+    id="wynik".</h3>
+
+<label for="waga">Podaj wagę w kg</label>
+<input type="number" id="waga">
+<label for="wzrost">Podaj wzrost w cm</label>
+<input type="number" id="wzrost">
+<input type="button" value="Oblicz BMI" onclick="obliczBMI()">
+<br>
+<p id="wynik"></p>
+<script>
+    const obliczBMI = () => {
+        const wagaIn = document.getElementById("waga");
+        const wzrostIn = document.getElementById("wzrost");
+        const wynikP = document.getElementById("wynik");
+
+        const waga = parseFloat(wagaIn.value);
+        const wzrost = parseFloat(wzrostIn.value) / 100;
+
+        if (isNaN(waga) || isNaN(wzrost) || wzrost === 0) {
+            wynikP.textContent = "Wprowadź prawidłowe dane.";
+        } else {
+            const bmi = waga / (wzrost * wzrost);
+            wynikP.textContent = `Twoje BMI wynosi: ${bmi.toFixed(2)}`;
+        }
+    };
+</script>
+</body>
+</html>

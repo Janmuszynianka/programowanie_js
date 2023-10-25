@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Zadanie2-A</title>
+</head>
+<body>
+<h3>Zad2-2 pkt. Napisz skrypt, który po naciśnięciu przycisku "zmień rozmiar" zmieni rozmiar tekstu dla wszystkich
+    elementów listy na 200%</h3>
+<input type="button" value="zmień rozmiar" onclick="zmianaCzcionki(`200%`)">
+<ol>
+    <li>Styczeń</li>
+    <li>Luty</li>
+    <li>Marzec</li>
+</ol>
+<script>
+    function zmianaCzcionki(nowyRozmiar) {
+        let ol = document.querySelector('ol');
+        ol.style.fontSize = nowyRozmiar;
+    }
+</script>
