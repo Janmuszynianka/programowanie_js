@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+    <meta charset="UTF-8">
+    <title>Potęgi</title>
+</head>
+<body>
+<script>
+    function obliczLata(dataUrodzenia, dataAktualna) {
+        let roznica = dataAktualna.getFullYear() - dataUrodzenia.getFullYear();
+        let miesiac = dataAktualna.getMonth() - dataUrodzenia.getMonth();
+
+        if (miesiac < 0 || (miesiac === 0 && dataAktualna.getDate() < dataUrodzenia.getDate())) {
+            roznica--;
+        }
+
+        return roznica;
+    }
+
+    let dataUrodzenia = new Date('2020-12-18');
+    let dataAktualna = new Date();
+
+    console.log(obliczLata(dataUrodzenia, dataAktualna)); // Wyświetli różnicę w latach
+
+</script>
+</body>
+</html>

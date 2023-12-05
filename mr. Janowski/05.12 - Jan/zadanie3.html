@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+    <meta charset="UTF-8">
+    <title>Potęgi</title>
+</head>
+<body>
+<script>
+    function potegi(podstawa, wykladnik) {
+        let wyniki = [];
+
+        for (let i = 0; i <= wykladnik; i++) {
+            wyniki.push(Math.pow(podstawa, i));
+        }
+
+        return wyniki;
+    }
+
+    document.write(potegi(2, 10));
+</script>
+</body>
+</html>

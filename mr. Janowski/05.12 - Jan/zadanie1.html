@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="">
+<head>
+    <title>Przykładowa Strona</title>
+</head>
+<body>
+<p>Test</p>
+
+
+<script>
+    function sprawdzPesel(peselArray, parametry) {
+        let wyniki = [];
+
+        for (let pesel of peselArray) {
+            let suma = 0;
+            for (let i = 0; i < 11; i++) {
+                suma += pesel[i] * parametry[i];
+            }
+            if (suma % 10 !== 0) {
+                continue;
+            }
+            wyniki.push('D');
+            {
+                wyniki.push('N');
+            }
+        }
+
+        return wyniki;
+    }
+
+    let n = 2;
+    let peselArray = ['44051401458', '12345678901'];
+    let parametry = [1, 3, 7, 9, 1, 3, 7, 9, 1, 3, 1];
+
+    let wynikiSprawdzenia = sprawdzPesel(peselArray, parametry);
+    console.log(wynikiSprawdzenia);
+
+</script>
+</body>
+</html>

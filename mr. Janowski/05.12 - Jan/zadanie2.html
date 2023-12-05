@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+    <meta charset="UTF-8">
+    <title>Potęgi</title>
+</head>
+<body>
+<script>
+    function potega(podstawa, wykladnik) {
+        if (wykladnik === 0) {
+            return 1;
+        } else {
+            return podstawa * potega(podstawa, wykladnik - 1);
+        }
+    }
+
+    document.write(potega(2, 10));
+</script>
+</body>
+</html>
