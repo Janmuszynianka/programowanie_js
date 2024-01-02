@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Testowanie Strony</title>
+</head>
+<body>
+
+<h1>Testowanie Strony</h1>
+
+<button id="button1">Pokaż adres strony</button>
+<button id="button2">Pokaż tytuł strony</button>
+<button id="button3">Pokaż datę ostatniej modyfikacji</button>
+<button id="button4">Pokaż aktualny czas</button>
+
+<script>
+    document.getElementById('button1').addEventListener('click', function() {
+        alert("Adres strony: " + window.location.href);
+    });
+
+    document.getElementById('button2').addEventListener('click', function() {
+        alert("Tytuł strony: " + document.title);
+    });
+
+    document.getElementById('button3').addEventListener('click', function() {
+        alert("Data ostatniej modyfikacji: " + document.lastModified);
+    });
+
+    document.getElementById('button4').addEventListener('click', function() {
+        var currentTime = new Date();
+        var formattedTime = currentTime.getHours() + ":" + currentTime.getMinutes()+ ":" + currentTime.getSeconds() + ":" + currentTime.getMilliseconds();
+        alert("Aktualny czas: " + formattedTime);
+    });
+
+</script>
+
+</body>
+</html>

@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Przekierowanie</title>
+</head>
+<body>
+
+<h1>Strona z przyciskami</h1>
+
+<button id="googleButton">Przejdź do Google</button>
+<button id="wikipediaButton">Przejdź do Wikipedia</button>
+
+<script>
+    document.getElementById('googleButton').addEventListener('click', function() {
+        window.location.href = 'https://www.google.pl';
+    });
+
+    document.getElementById('wikipediaButton').addEventListener('click', function() {
+        window.location.href = 'https://pl.wikipedia.org';
+    });
+</script>
+
+</body>
+</html>
