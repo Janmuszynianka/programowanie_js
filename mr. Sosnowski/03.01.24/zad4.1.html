@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ćwiczenie 1</title>
+</head>
+<body>
+
+<h1>Lista zakupów</h1>
+<input type="text" id="fname" placeholder="Podaj nazwę produktu">
+<input type="submit" value="Dodaj" onclick="addListItem()">
+<ul id="shoppingList"></ul>
+
+<script>
+    const ul = document.getElementById('shoppingList');
+    const inputField = document.getElementById('fname');
+
+    function addListItem() {
+        const productName = inputField.value;
+        if (productName.trim() !== '') {
+            const li = document.createElement('li');
+            li.innerText = productName;
+            ul.appendChild(li);
+            inputField.value = '';
+        }
+    }
+
+    const shoppingList = ["Mleko", "Jajka", "Jogurt", "Pasztet", "Bułka", "Ogórki kiszone"];
+    for (const shoppingProduct of shoppingList) {
+        addListItem(shoppingProduct);
+    }
+</script>
+
+</body>
+</html>

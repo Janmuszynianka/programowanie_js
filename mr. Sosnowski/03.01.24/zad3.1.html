@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ćwiczenie 1</title>
+</head>
+<body>
+
+<h1>Lista zakupów</h1>
+
+<ul id="shoppingList">
+
+</ul>
+
+<script>
+    const ul = document.getElementById('shoppingList');
+    console.log(ul);
+
+    function addListItem(productName) {
+        const li = document.createElement('li');
+        li.innerText = productName;
+        ul.appendChild(li);
+    }
+
+    shoppingList = ["Mleko", "Jajka", "Jogurt", "Pasztet", "Bułka", "Ogórki kiszone"]
+    for (let shoppingProduct of shoppingList) {
+        addListItem(shoppingProduct);
+    }
+</script>
+
+</body>
+</html>

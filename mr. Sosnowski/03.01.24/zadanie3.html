@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Exercise 2</title>
+</head>
+<body>
+
+<ul id="myList">
+    <li>element1</li>
+    <li>element2</li>
+    <li>element3</li>
+</ul>
+
+<script>
+    const listItems = document.querySelectorAll('#myList li');
+
+    const textArray = [...listItems].map(item => item.innerText);
+
+    console.log(textArray);
+
+    alert(textArray.join(', '));
+</script>
+
+</body>
+</html>

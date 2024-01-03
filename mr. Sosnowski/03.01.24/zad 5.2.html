@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Obsługa Zdarzeń</title>
+    <style>
+        #paragraf1 {
+            cursor: pointer;
+        }
+    </style>
+</head>
+<body>
+
+<p id="paragraf1">To jest pierwszy paragraf.</p>
+<p id="paragraf2">To jest drugi paragraf.</p>
+
+<script>
+    function paragraf1() {
+        document.getElementById('paragraf1').remove();
+    }
+
+    function paragraf2() {
+        document.getElementById('paragraf2').style.color = 'red';
+    }
+
+    function paragraf21() {
+        document.getElementById('paragraf2').remove();
+    }
+
+    document.getElementById('paragraf1').addEventListener('mouseover', paragraf1);
+    document.getElementById('paragraf2').addEventListener('mouseover', paragraf2);
+    document.getElementById('paragraf2').addEventListener('click', paragraf21);
+</script>
+
+</body>
+</html>
