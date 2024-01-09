@@ -1,0 +1,45 @@
+
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Rozwiązanie równań kwadratowych</title>
+</head>
+<body>
+
+<input type="file" id="fileInput" accept=".txt">
+<pre id="output"></pre>
+
+<script>
+    function solveQuadraticEquation(a, b, c) {
+        const delta = b * b - 4 * a * c;
+        if (delta > 0) {
+            return 2;
+        } else if (delta === 0) {
+            return 1;
+        } else {
+            return 0;
+        }
+    }
+
+    document.getElementById('fileInput').addEventListener('change', function() {
+        const file = this.files[0];
+        const reader = new FileReader();
+
+        reader.onload = function(event) {
+            const content = event.target.result;
+            const equations = content.trim().split('\n');
+
+            const results = equations.map(equation => {
+                const [a, b, c] = equation.split(' ').map(parseFloat);
+                return solveQuadraticEquation(a, b, c);
+            });
+
+            document.getElementById('output').innerText = results.join('\n');
+        };
+
+        reader.readAsText(file);
+    });
+</script>
+
+</body>
+</html>

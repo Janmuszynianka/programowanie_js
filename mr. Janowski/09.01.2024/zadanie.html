@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta content="width=device-width, initial-scale=1.0" name="viewport">
+    <title>Main Script Page</title>
+</head>
+<body>
+
+<h1>Welcome to Main Script Page</h1>
+
+<canvas id="myChart" style="width:100%;max-width:600px"></canvas>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.9.4/Chart.js"></script>
+<script>
+    let a = parseInt(prompt("Podaj liczbę"));
+    let xtable = [a];
+    let ytable = [1];
+
+    while (a !== 1) {
+        if (a % 2 === 0) {
+            a = a / 2;
+        } else {
+            a = a * 3 + 1;
+        }
+        xtable.push(a);
+        ytable.push(ytable.length + 1);
+    }
+
+    console.log("Final value of a:", a);
+
+    document.body.innerHTML += `<p id="Sekwencja"></p>`;
+    document.body.innerHTML += `<p id="Wartosci"></p>`;
+    document.body.innerHTML += `<p id="Koncowa"></p>`;
+
+    document.getElementById("Sekwencja").innerHTML = "Sekwencja (Y)" + xtable.join(', ');
+    document.getElementById("Wartosci").innerHTML = "Wartości (X)" + ytable.join(', ');
+    document.getElementById("Koncowa").innerHTML = "Koncowa Liczby" + xtable.slice(-3);
+
+
+</script>
+<script>
+    new Chart("myChart", {
+        type: "line",
+        data: {
+            labels: ytable,
+            datasets: [{
+                fill: false,
+                lineTension: 0,
+                backgroundColor: "rgba(0,0,255,1.0)",
+                borderColor: "rgba(0,0,255,0.1)",
+                data: xtable
+            }]
+        },
+    });
+
+</script>
+<script>
+    function readFile() {
+        var input = document.getElementById("fileInput").files[0];
+
+        if (input) {
+            var reader = new FileReader();
+            reader.onload = function (e) {
+                document.getElementById("inputTextarea").value = e.target.result;
+            };
+            reader.readAsText(input);
+        } else {
+            alert("Wybierz plik dane.txt przed kontynuacją.");
+        }
+    }
+
+    function calculateAndSave() {
+        var inputText = document.getElementById("inputTextarea").value;
+        var inputLines = inputText.split('\n');
+
+        var output = "";
+        for (var i = 0; i < inputLines.length; i++) {
+            var line = inputLines[i].trim();
+            if (line !== "") {
+                var parts = line.split(' ');
+                var operator = parts[0];
+                var num1 = parseInt(parts[1]);
+                var num2 = parseInt(parts[2]);
+
+                var result;
+                switch (operator) {
+                    case '+':
+                        result = num1 + num2;
+                        break;
+                    case '-':
+                        result = num1 - num2;
+                        break;
+                    case '*':
+                        result = num1 * num2;
+                        break;
+                    case '/':
+                        result = Math.floor(num1 / num2);
+                        break;
+                    case '%':
+                        result = num1 % num2;
+                        break;
+                    default:
+                        result = "Błędny operator";
+                }
+
+                output += result + "\n";
+            }
+        }
+
+        var blob = new Blob([output], {type: "text/plain;charset=utf-8"});
+        saveAs(blob, "wyniki.txt");
+
+        document.getElementById("outputTextarea").value = "Wyniki zapisano w pliku wyniki.txt";
+    }
+
+    function saveAs(blob, filename) {
+        var link = document.createElement("a");
+        link.href = window.URL.createObjectURL(blob);
+        link.download = filename;
+        link.click();
+    }
+</script>
+<h1>CALC – Kalkulator</h1>
+<p>Wczytaj dane wejściowe z pliku:</p>
+<input id="fileInput" onchange="readFile()" type="file">
+<br>
+<p>Wprowadź znak arytmetyczny oraz obliczenia:</p>
+<textarea cols="30" id="inputTextarea" rows="5"></textarea>
+<br>
+<button onclick="calculateAndSave()">Oblicz i zapisz</button>
+<br>
+<p>Wyniki:</p>
+<textarea cols="30" id="outputTextarea" readonly rows="5"></textarea>
+</body>
+</html>
