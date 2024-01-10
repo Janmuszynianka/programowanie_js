@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style type="text/css">
+        div {
+            width: 400px;
+            background-color: cyan;
+            padding: 10px;
+        }
+
+        .pole {
+            position: absolute;
+            left: 90px;
+        }
+
+        #akt1 {
+            font-size: 14pt;
+        }
+    </style>
+
+</head>
+<body>
+<form action="mailto:jerzy.sosnowski@zspbierutow.pl" enctype="text/plain" method="post"
+      onsubmit="return sprawdz(this);">
+    <p id="ak1">Dane osobowe:</p>
+    <b>Nazwisko:</b>
+    <input class="pole" id="nazw" name="nazw" size="40" value=""><br>
+    <b>Imię:</b>
+    <input class="pole" id="imie" name="imie" size="40" value=""><br>
+    <b>Zawód:</b>
+    <input class="pole" id="zawod" name="zawod" size="40" value=""><br><br>
+    <label>Pracuję: <input maxlength="1" name="opcje" type="checkbox"> </label><br><br>
+    <input type="submit" value="Wyślij">
+    <input type="reset" value="Reset">
+</form>
+<script>
+    function sprawdz(form) {
+        if (form.nazw.value === '' || form.nazw.value.length < 3) {
+            alert('Pole Nazwisko musi być wypełnione i musi mieć min. 3 znaki');
+            form.nazw.focus();
+            return false;
+        }
+        if (form.imie.value === '' || form.imie.value.length < 3) {
+            alert('Pole Imię musi być wypełnione i musi mieć min. 3 znaki');
+            form.imie.focus();
+            return false;
+        }
+        if (form.zawod.value === '' || form.zawod.value.length < 3) {
+            alert('Pole Zawód musi być wypełnione i musi mieć min. 3 znaki');
+            form.zawod.focus();
+            return false;
+        }
+        return true;
+    }
+
+</script>
+</body>
+</html>

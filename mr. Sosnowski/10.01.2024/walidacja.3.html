@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style type="text/css">
+        div {
+            width: 400px;
+            background-color: cyan;
+            padding: 10px;
+        }
+
+        .pole {
+            position: absolute;
+            left: 90px;
+        }
+
+        #akt1 {
+            font-size: 14pt;
+        }
+    </style>
+
+</head>
+<body>
+<form id="form1" action="mailto:jerzy.sosnowski@zspbierutow.pl" enctype="text/plain" method="post"
+      onsubmit="return sprawdz(this);">
+    <p id="ak1">Dane osobowe:</p>
+    <b>Nazwisko:</b>
+    <input class="pole" id="nazw" name="nazw" size="40" value=""><br>
+    <b>Imię:</b>
+    <input class="pole" id="imie" name="imie" size="40" value=""><br>
+    <b>Zawód:</b>
+    <input class="pole" id="zawod" name="zawod" size="40" value=""><br><br>
+    <b>Email:</b>
+    <input id="mail" name="mail" onblur="return adres()" size="40" type="text"><br><br>
+    <label>Pracuję: <input maxlength="1" name="opcje" type="checkbox"> </label><br><br>
+    <input type="submit" value="Wyślij">
+    <input type="reset" value="Reset">
+    <input onclick="wyswietlDane()" type="button" value="Wyślij">
+
+</form>
+<script>
+    function sprawdz(form) {
+        if (form.nazw.value === '' || form.nazw.value.length < 3) {
+            alert('Pole Nazwisko musi być wypełnione i musi mieć min. 3 znaki');
+            form.nazw.focus();
+            return false;
+        }
+        if (form.imie.value === '' || form.imie.value.length < 3) {
+            alert('Pole Imię musi być wypełnione i musi mieć min. 3 znaki');
+            form.imie.focus();
+            return false;
+        }
+        if (form.zawod.value === '' || form.zawod.value.length < 3) {
+            alert('Pole Zawód musi być wypełnione i musi mieć min. 3 znaki');
+            form.zawod.focus();
+            return false;
+        }
+        return true;
+    }
+
+    function adres() {
+        if (document.getElementById('mail').value !== 'e-mail') {
+            alert('Wpisz tekst: "e-mail"');
+            return false;
+        }
+        return true;
+    }
+
+    // Definicja funkcji wyswietlDane
+    function wyswietlDane() {
+        let formElement = document.getElementById("form1");
+
+        let formData = {};
+
+        for (let i = 0; i < formElement.elements.length; i++) {
+            let element = formElement.elements[i];
+
+            if (element.type !== "button") {
+                formData[element.name] = element.value;
+            }
+        }
+
+        let displayDiv = document.createElement("div");
+
+        let header = document.createElement("h2");
+        header.innerHTML = "Wprowadzone dane:";
+        displayDiv.appendChild(header);
+
+        let list = document.createElement("ul");
+
+        for (let key in formData) {
+            let listItem = document.createElement("li");
+            listItem.innerHTML = "<strong>" + key + ":</strong> " + formData[key];
+            list.appendChild(listItem);
+        }
+
+        displayDiv.appendChild(list);
+
+        document.body.appendChild(displayDiv);
+    }
+
+</script>
+</body>
+</html>
