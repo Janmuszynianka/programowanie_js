@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hello World Button</title>
+    <style>
+        #helloButton {
+            padding: 10px;
+            cursor: pointer;
+        }
+    </style>
+</head>
+<body>
+
+<div id="helloButton" onclick="showHelloWorld()">
+    Hello
+</div>
+
+<script>
+    var buttonClicked = false;
+
+    function showHelloWorld() {
+        if (!buttonClicked) {
+            buttonClicked = true;
+
+            var buttonContainer = document.getElementById('helloButton');
+            buttonContainer.disabled = true;
+
+            var heading = document.createElement('h1');
+            heading.innerText = 'Hello World';
+
+            document.body.appendChild(heading);
+
+            setTimeout(function () {
+                buttonContainer.style.display = 'none';
+            }, 3000);
+        }
+    }
+</script>
+
+</body>
+</html>

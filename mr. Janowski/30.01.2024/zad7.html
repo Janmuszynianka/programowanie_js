@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta content="width=device-width, initial-scale=1.0" name="viewport">
+    <title>Bąbelkowe Zdarzenia</title>
+    <style>
+        #myContainer {
+            padding: 20px;
+            background-color: #f0f0f0;
+            cursor: pointer;
+        }
+    </style>
+</head>
+<body>
+
+<div id="myContainer">
+    Kliknij tutaj, aby wywołać zdarzenie własnego wyboru.
+</div>
+
+<script>
+    var myContainer = document.getElementById("myContainer");
+
+    myContainer.addEventListener("wybor", function (event) {
+        event.stopPropagation();
+
+        alert("Zdarzenie własnego pomysłu zostało wywołane!");
+    });
+
+    document.body.addEventListener("click", function () {
+        alert("Zdarzenie kliknięcia na body");
+    });
+</script>
+
+</body>
+</html>
