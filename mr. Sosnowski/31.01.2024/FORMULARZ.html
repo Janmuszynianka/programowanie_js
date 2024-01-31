@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<form name="FORM1">
+    <input name="imie" placeholder="Podaj imie" type="text">
+    <input onclick="powitanie(this.form)" type="button" value="Kliknij">
+</form>
+<div id="message"></div>
+
+<script>
+    function powitanie(x) {
+        var name = x.imie.value;
+        if (name) {
+            message = `Witaj ${name}`;
+        } else {
+            message = 'Nie wpisałeś imienia.';
+        }
+        document.getElementById('message').innerHTML = message;
+    }
+</script>
+</body>
+</html>

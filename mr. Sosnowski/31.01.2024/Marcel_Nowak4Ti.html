@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+    <meta charset="UTF-8">
+    <meta content="width=device-width, initial-scale=1.0" name="viewport">
+    <title>Tematy18-19-gr1</title>
+    <style>
+        h3 {
+            color: brown
+        }
+    </style>
+</head>
+<body>
+
+<!-- Zadanie 1 -->
+<h3>01. Zdefiniuj zmienną suma a w niej zapamiętaj wynik dodawania cyfr składających się na twoją datę urodzenia (dzien,
+    miesiac, rok). Poniżej wypisz komunikat: Suma liczb w mojej dacie urodzenia wynosi: obliczona_suma. Do wyświetlenia
+    komunikatu i zmiennej zawierajacej wynik użyj literału szablonowego (grawisy ` `)</h3>
+<div id="wynik1"></div>
+<script>
+    const dzien = 18;
+    const miesiac = 12;
+    const rok = 2005;
+
+    const suma = dzien + miesiac + rok;
+
+    const komunikat = `Suma liczb w mojej dacie urodzenia wynosi: ${suma}`;
+
+    document.getElementById("wynik1").innerHTML = komunikat;
+
+</script>
+
+<!-- Zadanie 2 -->
+<h3>02. Po kliknięciu na poniższy przycisk zmień jego kolor srebrny oraz kolor tekstu na przycisku na niebieski. Do
+    wykonania polecenia nie używaj funkcji onclick w kodzie HTML, zastosuj inny poznany sposób.</h3>
+<button id="clickMe">Zmień mój kolor na srebrny i czcionkę na niebieski</button>
+<script>
+    document.getElementById("clickMe").addEventListener("click", function () {
+        this.style.backgroundColor = "silver";
+        this.style.color = "blue";
+    });
+</script>
+
+<!-- Zadanie 3 -->
+<h3>03. Zdefiniuj nową tablicę liczby zawierająca liczby zapisane słownie początek,jeden, dwa, trzy, koniec. Stosując
+    odpowiednie metody usuń pierwszy i ostatni element tablicy (początek, koniec). Wyświetl tablicę liczby przed
+    modyfikacją i po modyfikacji</h3>
+<div id="wynik2"></div>
+<div id="wynik3"></div>
+<script>
+    let liczby = ["początek", "jeden", "dwa", "trzy", "koniec"];
+
+    document.getElementById("wynik2").innerHTML = "Przed modyfikacją " + liczby.join(", ");
+
+    liczby.shift();
+    liczby.pop();
+
+    document.getElementById("wynik3").innerHTML = "Po modyfikacji: " + liczby.join(", ");
+</script>
+
+<!-- Zadanie 4 -->
+<h3>04. Napisz funkcję, która spowoduje, że po kliknięciu w przycisk do paragrafu znajdującego się w div o id="ramka"
+    zostanie dodany atrybut class="akapit". Paragraf i jego klasę wyprowadż w konsoli</h3>
+<input id="dodaj" type="button" value='Dodaj dynamicznie atrybut class="akapit"'>
+<div id="ramka">
+    <p>Paragraf</p>
+</div>
+
+<script>
+document.getElementById("dodaj").addEventListener("click", function() {
+    let paragraph = document.querySelector("#ramka p");
+    paragraph.classList.add("akapit");
+    console.log(paragraph);
+});
+</script>
+
+
+</body>
+</html>

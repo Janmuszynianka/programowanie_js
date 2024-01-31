@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+    <meta charset="UTF-8">
+    <title>Formularz samochodowy</title>
+    <link href="https://fonts.googleapis.com" rel="preconnect">
+    <link crossorigin href="https://fonts.gstatic.com" rel="preconnect">
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@100;400&display=swap" rel="stylesheet">
+    <style>
+        form input, form select, form textarea {
+            border: 2px solid #000;
+            padding: 5px;
+            margin-bottom: 10px;
+        }
+
+        fieldset {
+            border: 2px solid #000;
+            padding: 10px;
+            margin-bottom: 10px;
+        }
+
+        #message {
+            width: 50%;
+            margin: auto;
+        }
+
+        body {
+            font-family: 'Noto Sans JP', sans-serif;
+        }
+
+        #results {
+            padding: 10px;
+            width: 50%;
+            margin: auto;
+        }
+
+        fieldset input[type="checkbox"] {
+            display: inline;
+        }
+
+        fieldset label {
+            display: inline;
+        }
+    </style>
+
+</head>
+<body>
+<div id="message">
+    <form id="carForm">
+        <fieldset>
+            <legend><label for="brand">Twoja ulubiona marka samochodu:</label><br></legend>
+            <input id="brand" name="brand" type="text"><br></fieldset>
+        <fieldset>
+            <legend>Kolor:</legend>
+            <input id="czerwony" name="color" type="checkbox" value="czerwony">
+            <label for="czerwony">Czerwony</label>
+            <input id="niebieski" name="color" type="checkbox" value="niebieski">
+            <label for="niebieski">Niebieski</label>
+            <input id="zielony" name="color" type="checkbox" value="zielony">
+            <label for="zielony">Zielony</label>
+            <input id="czarny" name="color" type="checkbox" value="czarny">
+            <label for="czarny">Czarny</label>
+            <input id="biały" name="color" type="checkbox" value="biały">
+            <label for="biały">Biały</label>
+            <input id="srebrny" name="color" type="checkbox" value="srebrny">
+            <label for="srebrny">Srebrny</label>
+        </fieldset>
+        <fieldset>
+            <legend>Wybierz paliwo:</legend>
+            <input id="petrol" name="fuel" type="radio" value="Benzyna">
+            <label for="petrol">Benzyna</label><br>
+            <input id="diesel" name="fuel" type="radio" value="Diesel">
+            <label for="diesel">Diesel</label><br>
+            <input id="electric" name="fuel" type="radio" value="Electric">
+            <label for="electric">Elektryczny</label><br>
+            <input id="hybrid" name="fuel" type="radio" value="Hybrid">
+            <label for="hybrid">Hybryda</label><br>
+            <input id="gas" name="fuel" type="radio" value="Gas">
+            <label for="gas">Gaz</label><br>
+        </fieldset>
+        <fieldset>
+            <legend>Rodzaj nadwozia</legend>
+            <label for="body">Wybierz rodzaj nadwozia:</label><br>
+            <select id="body" multiple name="body">
+                <option value="sedan">Sedan</option>
+                <option value="suv">SUV</option>
+                <option value="hatchback">Hatchback</option>
+                <option value="coupe">Coupe</option>
+                <option value="cabrio">Cabrio</option>
+                <option value="van">Van</option>
+                <option value="pickup">Pickup</option>
+                <option value="limousine">Limousine</option>
+                <option value="combi">Combi</option>
+                <option value="roadster">Roadster</option>
+                <option value="minivan">Minivan</option>
+                <option value="minibus">Minibus</option>
+                <option value="microvan">Microvan</option>
+                <option value="other">Inne</option>
+            </select><br>
+        </fieldset>
+        <label for="requirements">Szczególne wymagania:</label><br>
+        <textarea id="requirements" name="requirements"></textarea><br>
+        <input onclick="displayResults()" type="button" value="Submit">
+    </form>
+</div>
+<div id="results"></div>
+
+<script>
+    function displayResults() {
+        let brand = document.getElementById('brand').value;
+        let fuel = document.querySelector('input[name="fuel"]:checked').value;
+        let body = Array.from(document.querySelectorAll('#body option:checked')).map(option => option.value);
+        let requirements = document.getElementById('requirements').value;
+        let colors = Array.from(document.querySelectorAll('input[name="color"]:checked')).map(input => input.value);
+        document.getElementById('results').innerHTML = `Marka: ${brand}<br>Kolor: ${colors.join(', ')}<br>Paliwo: ${fuel}<br>Nadwozie: ${body}<br>Wymagania: ${requirements}`;
+    }
+</script>
+</body>
+</html>
