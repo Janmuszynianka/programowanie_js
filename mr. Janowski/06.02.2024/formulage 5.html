@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+    <meta charset="UTF-8">
+    <meta content="width=device-width, initial-scale=1.0" name="viewport">
+    <title>Wybierz pasmo górskie</title>
+    <style>
+        #obrazek {
+            margin-top: 20px;
+            max-width: 400px;
+        }
+    </style>
+</head>
+<body>
+
+<select id="pasmo" onchange="showHighestPeak()">
+    <option value="">Wybierz pasmo górskie:</option>
+    <option value="Tatry Zachodnie">Tatry Zachodnie</option>
+    <option value="Tatry Wschodnie">Tatry Wschodnie</option>
+    <option value="Tatry Bielskie">Tatry Bielskie</option>
+</select>
+
+<p id="wynik"></p>
+
+<div id="obrazek"></div>
+
+<script>
+    function showHighestPeak() {
+        var pasmo = document.getElementById("pasmo").value;
+        var wysokosci = {
+            "Tatry Zachodnie": {
+                "Najwyższy szczyt": "Rysy",
+                "Wysokość": "2499 m n.p.m.",
+                "Obrazek": "https://upload.wikimedia.org/wikipedia/commons/thumb/f/ff/Panorama_z_Chudej_Prze%C5%82%C4%85czki_1-T39.jpg/1920px-Panorama_z_Chudej_Prze%C5%82%C4%85czki_1-T39.jpg"
+            },
+            "Tatry Wschodnie": {
+                "Najwyższy szczyt": "Gerlach",
+                "Wysokość": "2655 m n.p.m.",
+                "Obrazek": "https://upload.wikimedia.org/wikipedia/commons/thumb/d/da/Vysok%C3%A9_Tatry_panorama.jpg/1920px-Vysok%C3%A9_Tatry_panorama.jpg"
+            },
+            "Tatry Bielskie": {
+                "Najwyższy szczyt": "Hawrań",
+                "Wysokość": "2152 m n.p.m.",
+                "Obrazek": "https://upload.wikimedia.org/wikipedia/commons/thumb/8/8c/Tatry_Bielskie_a15.jpg/1920px-Tatry_Bielskie_a15.jpg"
+            }
+        };
+
+        var wynik = document.getElementById("wynik");
+        var obrazek = document.getElementById("obrazek");
+
+        if (pasmo !== "") {
+            wynik.innerHTML = "Najwyższy szczyt w " + pasmo + " to " + wysokosci[pasmo]["Najwyższy szczyt"] + ", który ma wysokość " + wysokosci[pasmo]["Wysokość"] + ".";
+            obrazek.innerHTML = "<img src='" + wysokosci[pasmo]["Obrazek"] + "' alt='" + pasmo + "'>";
+        } else {
+            wynik.innerHTML = "";
+            obrazek.innerHTML = "";
+        }
+    }
+</script>
+
+</body>
+</html>

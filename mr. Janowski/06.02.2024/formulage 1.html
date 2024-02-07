@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Formularz logowania</title>
+    <script src="https://hcaptcha.com/1/api.js" async defer></script>
+</head>
+<body>
+<h1>Formularz logowania</h1>
+<form id="formularz" action="(adres strony potwierdzającej zalogowanie)" method="post">
+    <label for="login">Login:</label>
+    <input type="text" id="login" name="login" required>
+    <br>
+    <label for="haslo">Hasło:</label>
+    <input type="password" id="haslo" name="haslo" required>
+    <br>
+    <br>
+    <div class="h-captcha" data-sitekey="183791b3-5691-4a30-a61e-e4ddf45a778d"></div>
+    <br>
+    <input type="submit" value="Zaloguj się">
+</form>
+
+<script>
+    document.getElementById('formularz').addEventListener('submit', function(e) {
+        if (hcaptcha.getResponse() === '') {
+            e.preventDefault();
+            alert('Wypełnij hCaptcha!');
+        }
+    });
+</script>
+
+</body>
+</html>

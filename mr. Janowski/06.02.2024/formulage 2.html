@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Suwaki</title>
+</head>
+<body>
+<h1>Suwaki</h1>
+
+<label for="suwak">Suwak 1:</label>
+<input type="range" id="suwak" name="suwak" min="0" max="100" value="0">
+<p>Wartość suwaka 1: <span id="wartosc1">0</span></p>
+
+<label for="suwak2">Suwak 2:</label>
+<input type="range" id="suwak2" name="suwak2" min="0" max="100" value="0">
+<p>Wartość suwaka 2: <span id="wartosc2">0</span></p>
+
+<label for="select">Wybierz wartość dla suwaka 2:</label>
+<select id="select">
+    <option value="">blank</option>
+    <script>
+        for (let i = 0; i <= 100; i++) {
+            document.write('<option value="' + i + '">' + i + '</option>');
+        }
+    </script>
+</select>
+
+<script>
+    const suwak = document.getElementById('suwak');
+    const wartosc1 = document.getElementById('wartosc1');
+    suwak.addEventListener('input', function() {
+        wartosc1.textContent = this.value;
+    });
+
+    const suwak2 = document.getElementById('suwak2');
+    const wartosc2 = document.getElementById('wartosc2');
+    suwak2.addEventListener('input', function() {
+        wartosc2.textContent = this.value;
+    });
+
+    const select = document.getElementById('select');
+    select.addEventListener('change', function() {
+        suwak2.value = this.value;
+        wartosc2.textContent = this.value;
+    });
+</script>
+</body>
+</html>

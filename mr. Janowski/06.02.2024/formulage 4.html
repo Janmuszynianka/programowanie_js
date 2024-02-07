@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Zgody użytkownika</title>
+</head>
+<body>
+<h1>Zgody użytkownika</h1>
+
+<form id="formularz">
+    <label for="zgoda1">Zgoda na czynność 1:</label>
+    <input type="checkbox" id="zgoda1" name="zgoda1">
+    <br>
+    <label for="zgoda2">Zgoda na czynność 2:</label>
+    <input type="checkbox" id="zgoda2" name="zgoda2">
+    <br>
+    <label for="zgoda3">Zgoda na treści handlowe:</label>
+    <input type="checkbox" id="zgoda3" name="zgoda3">
+    <br>
+    <input type="submit" value="Zatwierdź">
+</form>
+<p id="wiadomosc"></p>
+
+<script>
+    document.getElementById('formularz').addEventListener('submit', function(e) {
+        e.preventDefault();
+
+        const zgoda1 = document.getElementById('zgoda1').checked;
+        const zgoda2 = document.getElementById('zgoda2').checked;
+        const zgoda3 = document.getElementById('zgoda3').checked;
+
+        const liczbaZgod = [zgoda1, zgoda2, zgoda3].filter(Boolean).length;
+
+        const wiadomosc = document.getElementById('wiadomosc');
+
+        if (liczbaZgod >= 2) {
+            wiadomosc.textContent = "Dobry wybór!";
+        } else {
+            wiadomosc.textContent = "Pamiętaj! Koniecznie przeczytaj nasz regulamin.";
+        }
+    });
+</script>
+</body>
+</html>

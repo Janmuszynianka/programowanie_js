@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Potęga liczby</title>
+</head>
+<body>
+<h1>Obliczanie potęgi liczby</h1>
+
+<label for="liczba">Wprowadź liczbę:</label>
+<input type="number" id="liczba" name="liczba">
+<button id="pokazBtn">Pokaż</button>
+<p id="wynik"></p>
+
+<script>
+    document.getElementById('pokazBtn').addEventListener('click', function() {
+        const liczbaInput = document.getElementById('liczba');
+        const liczba = parseFloat(liczbaInput.value);
+        const wynikElement = document.getElementById('wynik');
+
+        if (!isNaN(liczba)) {
+            const potega = liczba * liczba;
+            wynikElement.textContent = `Potęga liczby ${liczba} to: ${potega}`;
+        } else {
+            wynikElement.textContent = "Proszę wprowadzić poprawną liczbę.";
+        }
+    });
+</script>
+</body>
+</html>
