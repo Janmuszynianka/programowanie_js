@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+    <meta charset="UTF-8">
+    <title>Sumator</title>
+</head>
+<body>
+<h1>Sumator Liczb</h1>
+<p>Wprowadź liczby z klawiatury:</p>
+<input id="numberInput" type="text">
+<p>Suma wprowadzonych liczb:</p>
+<p id="sumDisplay">0</p>
+
+<script>
+    let sum = 0;
+
+    function handleKeyPress(event) {
+        const keyPressed = event.key;
+        if (!isNaN(keyPressed)) {
+            const numberPressed = parseInt(keyPressed);
+            sum += numberPressed;
+            document.getElementById("sumDisplay").textContent = sum;
+        }
+    }
+
+    document.getElementById("numberInput").addEventListener("keydown", handleKeyPress);
+</script>
+</body>
+</html>

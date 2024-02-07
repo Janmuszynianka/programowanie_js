@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        #blockBtn {
+            width: 100px;
+            height: 100px;
+            background-color: green;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            color: white;
+            cursor: pointer;
+        }
+    </style>
+</head>
+<body>
+<div id="blockBtn">Blok</div>
+<p>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA</p>
+<script>
+    function buttonMouse(e) {
+        e.preventDefault()
+        console.log("e.button: ", e.button)
+        console.log("e.buttons: ", e.buttons)
+    }
+    const block = document.querySelector("#blockBtn")
+    block.addEventListener("mousedown", buttonMouse)
+    let p = document.getElementsByTagName("p")[0];
+    p.addEventListener("mouseenter", function(event){
+        console.log("Mouse entere")
+    })
+    p.addEventListener("mouseleave", function(event){
+        console.log("Mouse leave")
+    })
+    p.addEventListener("mousemove", function(event){
+        console.log("Mouse move")
+    })
+</script>
+</body>
+</html>

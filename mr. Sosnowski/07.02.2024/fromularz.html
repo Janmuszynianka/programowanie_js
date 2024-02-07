@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        body {
+            color: blue;
+        }
+
+        form {
+            display: flex;
+            flex-direction: column;
+            align-items: start;
+            background-color: #f4f4f4;
+            padding: 20px;
+        }
+
+        label {
+            display: inline-block;
+            width: 100px;
+            margin-right: 10px;
+        }
+
+        input[type="text"],
+        input[type="email"],
+        textarea {
+            width: 300px;
+            margin-bottom: 10px;
+        }
+
+        input[type="checkbox"] {
+            margin-right: 5px;
+        }
+
+        input[type="button"] {
+            margin-left: 0px;
+            margin-right: -5px;
+        }
+    </style>
+</head>
+<body>
+<h1>Kontakt</h1>
+<form name="FORM1">
+    <table>
+        <tr>
+            <td><label for="imie">Imię:</label></td>
+            <td><input id="imie" name="imie" placeholder="Podaj imie" type="text"></td>
+        </tr>
+        <tr>
+            <td><label for="nazwisko">Nazwisko:</label></td>
+            <td><input id="nazwisko" name="nazwisko" placeholder="Podaj nazwisko" type="text"></td>
+        </tr>
+        <tr>
+            <td><label for="email">Email:</label></td>
+            <td><input id="email" name="email" placeholder="Podaj email" type="email"></td>
+        </tr>
+        <tr>
+            <td><label for="zgloszenie">Zgłoszenie:</label></td>
+            <td><textarea id="zgloszenie" name="zgloszenie" placeholder="Podaj zgłoszenie"></textarea></td>
+        </tr>
+        <tr>
+            <td></td>
+            <td><input name="regulamin" type="checkbox"> Zapoznałem się z regulaminem</td>
+        </tr>
+        <tr>
+            <td></td>
+            <td>
+                <input onclick="resetujFormularz()" type="button" value="Resetuj">
+                <input type="button" value="Wyślij" onclick="wyswietlKomunikat(this.form)">
+            </td>
+        </tr>
+
+
+    </table>
+</form>
+<hr>
+<p id="message"></p>
+
+<script>
+    function resetujFormularz() {
+        document.getElementById('imie').value = '';
+        document.getElementById('nazwisko').value = '';
+        document.getElementById('email').value = '';
+        document.getElementById('zgloszenie').value = '';
+        document.getElementsByName('regulamin')[0].checked = false;
+    }
+
+    function wyswietlKomunikat(x) {
+        var imie = x.imie.value.toUpperCase();
+        var nazwisko = x.nazwisko.value.toUpperCase();
+        var zgloszenie = x.zgloszenie.value;
+        var regulamin = x.regulamin.checked;
+        var message;
+
+        if (regulamin) {
+            message = `<span style="color: navy;">${imie} ${nazwisko}<br>Treść Twojej sprawy: ${zgloszenie}</span>`;
+        } else {
+            message = '<span style="color: red;">Musisz zapoznać się z regulaminem</span>';
+        }
+
+        document.getElementById('message').innerHTML = message;
+    }
+</script>
+</body>
+</html>

@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+    <meta charset="UTF-8">
+    <title>Sumator</title>
+</head>
+<body>
+<h1>Sumator Liczb</h1>
+<p>Suma wprowadzonych liczb:</p>
+<p id="sumDisplay">0</p>
+<p>ŚREDNIA ARYTMETYCZNA:</p>
+<p id="averageDisplay">0</p>
+<p>ILOSC LICZB</p>
+<p id="countDisplay">0</p>
+
+<script>
+    let sum = 0;
+    let count = 0;
+
+    function averageDisplay(){
+        let average = sum / count;
+        document.getElementById("averageDisplay").textContent = average;
+        document.getElementById("countDisplay").textContent = count;
+    }
+
+    document.addEventListener('keydown', (event) => {
+        const keyPressed = event.key;
+        if (!isNaN(keyPressed)) {
+            const numberPressed = parseInt(keyPressed);
+            sum += numberPressed;
+            document.getElementById("sumDisplay").textContent = sum;
+        }
+        count++;
+        averageDisplay();
+    });
+</script>
+</body>
+</html>
