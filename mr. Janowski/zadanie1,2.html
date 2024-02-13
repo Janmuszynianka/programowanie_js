@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        #myDiv {
+            width: 300px;
+            height: 300px;
+            border: 2px solid black;
+            background-color: pink; /* Wybrany kolor */
+        }
+        #myDiv2 {
+            width: 300px;
+            height: 300px;
+            background-color: yellow; /* Wybrany kolor */
+        }
+        #myDiv3 p {
+            font-size: 22px;
+        }
+        #myDiv4 {
+            width: 300px;
+            height: 300px;
+            background-color: white;
+        }
+    </style>
+    <script>
+        function changeBackground() {
+            document.body.style.backgroundColor = "blue";
+        }
+        function changeDivBackgroundToRed() {
+            document.getElementById('myDiv').style.backgroundColor = "red";
+        }
+        function changeDivBackgroundToGreen() {
+            document.getElementById('myDiv').style.backgroundColor = "green";
+        }
+        function changeDivSize() {
+            var size = document.getElementById('sizeSlider').value;
+            document.getElementById('myDiv2').style.width = size + "px";
+            document.getElementById('myDiv2').style.height = size + "px";
+            document.getElementById('sizeDisplay').innerText = "Rozmiar diva: " + size + " pikseli";
+        }
+        function changeFontSize() {
+            var size = document.getElementById('fontSizeSlider').value;
+            document.getElementById('myP').style.fontSize = size + "px";
+            document.getElementById('fontSizeDisplay').innerText = "Rozmiar czcionki: " + size + " pikseli";
+        }
+        function changeDivColor() {
+            var red = document.getElementById('redSlider').value;
+            var green = document.getElementById('greenSlider').value;
+            var blue = document.getElementById('blueSlider').value;
+            document.getElementById('myDiv4').style.backgroundColor = "rgb(" + red + "," + green + "," + blue + ")";
+        }
+        function getRandomColor() {
+            var red = Math.floor(Math.random() * 256);
+            var green = Math.floor(Math.random() * 256);
+            var blue = Math.floor(Math.random() * 256);
+            return "rgb(" + red + "," + green + "," + blue + ")";
+        }
+        function changeButtonColorAndFunction(buttonId, divId) {
+            var color = getRandomColor();
+            document.getElementById(buttonId).style.backgroundColor = color;
+            document.getElementById(buttonId).onclick = function() {
+                document.getElementById(divId).style.backgroundColor = color;
+            };
+        }
+        window.onload = function() {
+            changeButtonColorAndFunction('button1', 'myDiv4');
+            changeButtonColorAndFunction('button2', 'myDiv4');
+            changeButtonColorAndFunction('button3', 'myDiv4');
+            changeButtonColorAndFunction('button4', 'myDiv4');
+        };
+    </script>
+</head>
+<body>
+<button id="button1">Zmień tło na losowy kolor</button>
+<button id="button2">Zmień tło na losowy kolor</button>
+<button id="button3">Zmień tło na losowy kolor</button>
+<button id="button4">Zmień tło na losowy kolor</button>
+<div id="myDiv"></div>
+<input type="range" min="0" max="500" value="300" id="sizeSlider" oninput="changeDivSize()">
+<p id="sizeDisplay">Rozmiar diva: 300 pikseli</p>
+<div id="myDiv2"></div>
+<div id="myDiv3">
+    <p id="myP">Hello World!</p>
+</div>
+<input type="range" min="0" max="250" value="22" id="fontSizeSlider" oninput="changeFontSize()">
+<p id="fontSizeDisplay">Rozmiar czcionki: 22 pikseli</p>
+<div id="myDiv4"></div>
+<input type="range" min="0" max="255" value="255" id="redSlider" oninput="changeDivColor()">
+<input type="range" min="0" max="255" value="255" id="greenSlider" oninput="changeDivColor()">
+<input type="range" min="0" max="255" value="255" id="blueSlider" oninput="changeDivColor()">
+<div id="output"></div>
+</body>
+</html>
