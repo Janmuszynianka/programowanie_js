@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>$Title$</title>
+  <form id="nazwiskoform">
+    <label for="surname">Nazwisko:</label>
+    <input type="text" id="surname" name="surname">
+    <input type="submit" value="Submit">
+  </form>
+  <p id="validationMessage"></p>
+  <script>
+    window.onload = function() {
+      const inputField = document.getElementById('myInput');
+
+      inputField.addEventListener('focus', function() {
+        this.style.backgroundColor = 'yellow';
+        this.value = 'Wpisz swoje imię';
+      });
+
+      inputField.addEventListener('blur', function() {
+        if (this.value === 'Wpisz swoje imię') {
+          this.value = 'Nic nie wpisałeś';
+        } else {
+          this.value = 'Niestety, nic tu nie wpiszesz';
+        }
+      });
+    };
+
+    document.getElementById('nazwiskoform').addEventListener('submit', function(event) {
+      event.preventDefault();
+
+      const surnameInput = document.getElementById('surname');
+      const validationMessage = document.getElementById('validationMessage');
+      const surname = surnameInput.value;
+
+      const isValidSurname = /^[A-Z][a-z]*$/.test(surname);
+
+      if (isValidSurname) {
+        validationMessage.textContent = 'Dane poprawne';
+        surnameInput.style.backgroundColor = 'green';
+      } else {
+        validationMessage.textContent = 'Dane niepoprawne';
+        surnameInput.style.backgroundColor = 'yellow';
+      }
+    });
+
+  </script>
+</head>
+<body>
+<input type="text" id="myInput" value="Kliknij tutaj!" />
+</body>
+</html>
