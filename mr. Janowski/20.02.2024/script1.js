@@ -1,0 +1,1 @@
+console.log("skrypt 1 wykonany");
