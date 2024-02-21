@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+<meta charset="UTF-8">
+<head>
+    <title>Wprowadź dane</title>
+    <script type="text/javascript">
+        window.onload = function() {
+            var x = parseFloat(prompt("Proszę wprowadzić wartość dla x", "0"));
+            var y = parseFloat(prompt("Proszę wprowadzić wartość dla y", "0"));
+
+            var maxValue = Math.max(x, y);
+            var xPowerY = Math.pow(x, y);
+            var sqrtX = Math.sqrt(x);
+            var lnY = Math.log(y);
+            var xCubed = Math.pow(x, 3);
+            var pi = Math.PI;
+            var sinX = Math.sin(x);
+            var rectangleDiagonal = Math.sqrt(x*x + y*y);
+
+            var resultsDiv = document.getElementById('results');
+            resultsDiv.innerHTML = "Maksymalna wartość: " + maxValue +
+                "<br>x do potęgi y: " + xPowerY +
+                "<br>Pierwiastek kwadratowy z x: " + sqrtX +
+                "<br>Logarytm naturalny z y: " + lnY +
+                "<br>x do sześcianu: " + xCubed +
+                "<br>Liczba Pi: " + pi +
+                "<br>Sinus x: " + sinX +
+                "<br>Przekątna prostokąta o bokach x i y: " + rectangleDiagonal;
+
+            var numbers = [];
+            for (var i = 0; i < 7; i++) {
+                var number = Math.floor(Math.random() * 49) + 1;
+                numbers.push(number);
+            }
+
+            resultsDiv.innerHTML += "<br>Wylosowane liczby: " + numbers.join(", ");
+        }
+    </script>
+</head>
+<body>
+<div id="results"></div>
+</body>
+</html>

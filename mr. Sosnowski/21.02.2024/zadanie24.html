@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>$Title$</title>
+  <form id="form">
+    <label for="fullname">Imię i Nazwisko:</label>
+    <input type="text" id="fullname" name="fullname">
+    <label for="email">E-mail:</label>
+    <input type="email" id="email" name="email">
+    <input type="submit" value="Submit">
+  </form>
+  <p id="validationMessage"></p>
+  <script>
+    window.onload = function() {
+      const inputField = document.getElementById('myInput');
+
+      inputField.addEventListener('focus', function() {
+        this.style.backgroundColor = 'yellow';
+        this.value = 'Wpisz swoje imię i nazwisko';
+      });
+
+      inputField.addEventListener('blur', function() {
+        if (this.value === 'Wpisz swoje imię i nazwisko') {
+          this.value = 'Nic nie wpisałeś';
+        } else {
+          this.value = 'Niestety, nic tu nie wpiszesz';
+        }
+      });
+    };
+
+    document.getElementById('form').addEventListener('submit', function(event) {
+      event.preventDefault();
+
+      const fullnameInput = document.getElementById('fullname');
+      const emailInput = document.getElementById('email');
+      const validationMessage = document.getElementById('validationMessage');
+      const fullname = fullnameInput.value;
+      const email = emailInput.value;
+
+      const isValidFullname = /^[A-Z][a-z]*\s[A-Z][a-z]*$/.test(fullname);
+      const isValidEmail = /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/.test(email);
+
+      if (isValidFullname && isValidEmail) {
+        validationMessage.textContent = 'Dane poprawne';
+        fullnameInput.style.backgroundColor = 'green';
+        emailInput.style.backgroundColor = 'green';
+      } else {
+        validationMessage.textContent = 'Dane niepoprawne';
+        fullnameInput.style.backgroundColor = 'yellow';
+        emailInput.style.backgroundColor = 'yellow';
+      }
+    });
+
+  </script>
+</head>
+<body>
+<input type="text" id="myInput" value="Kliknij tutaj!" />
+</body>
+</html>

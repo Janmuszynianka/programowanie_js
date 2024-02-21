@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+
+<meta charset="UTF-8">
+
+<head>
+    <title>Sprawdź trójkąt</title>
+    <script type="text/javascript">
+        function checkTriangle() {
+            var a = parseFloat(document.getElementById('a').value);
+            var b = parseFloat(document.getElementById('b').value);
+            var c = parseFloat(document.getElementById('c').value);
+
+            if (a + b > c && a + c > b && b + c > a) {
+                var s = (a + b + c) / 2;
+                var area = Math.sqrt(s * (s - a) * (s - b) * (s - c));
+                document.getElementById('result').innerHTML = "Pole trójkąta: " + area;
+            } else {
+                document.getElementById('result').innerHTML = "Z podanych odcinków nie można zbudować trójkąta.";
+            }
+        }
+    </script>
+</head>
+<body>
+<form>
+    <label for="a">Długość boku a:</label>
+    <input type="text" id="a" name="a">
+    <label for="b">Długość boku b:</label>
+    <input type="text" id="b" name="b">
+    <label for="c">Długość boku c:</label>
+    <input type="text" id="c" name="c">
+    <input type="button" value="Sprawdź" onclick="checkTriangle()">
+</form>
+<p id="result"></p>
+</body>
+</html>
